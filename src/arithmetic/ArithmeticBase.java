@@ -13,25 +13,9 @@ import java.util.Scanner;
  * @author sivagamasrinivasan
  * 
  */
-public class ArithmeticBase {
+class ArithmeticBase {
 
     public double calculate(double x, double y, ArithmeticOperation operation) {
-        switch (operation) {
-            case PLUS:
-                return x + y;
-            case MINUS:
-                return x - y;
-            case TIMES:
-                return x * y;
-            case DIVIDE:
-                if (y != 0) {
-                    return x / y;
-                } else {
-                    System.out.println("Cannot divide by zero.");
-                    return Double.NaN; // or handle it in a way suitable for your application
-                }
-            default:
-                throw new AssertionError("Unknown operations " + this);
-        }
+        return operation.apply(x, y);
     }
 }
