@@ -13,27 +13,25 @@ import java.util.Scanner;
  * @author sivagamasrinivasan
  * 
  */
-public class ArithmeticBase 
-{
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter arithmetic operation to Perform: ");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
+public class ArithmeticBase {
+
+    public double calculate(double x, double y, ArithmeticOperation operation) {
+        switch (operation) {
+            case PLUS:
                 return x + y;
-            case "MINUS":
+            case MINUS:
                 return x - y;
-            case "TIMES":
+            case TIMES:
                 return x * y;
-            case "DIVIDE":
-                return x / y;
+            case DIVIDE:
+                if (y != 0) {
+                    return x / y;
+                } else {
+                    System.out.println("Cannot divide by zero.");
+                    return Double.NaN; // or handle it in a way suitable for your application
+                }
             default:
                 throw new AssertionError("Unknown operations " + this);
         }
     }
-   
 }
